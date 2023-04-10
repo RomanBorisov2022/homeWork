@@ -77,8 +77,13 @@ public class Tree implements Serializable, Iterable<Human> {
         return sb.toString();
     }
 
+//    @Override
+//    public Iterator<Human> iterator() {
+//        return new HumanIterator(humans);
+//    }
+
     @Override
     public Iterator<Human> iterator() {
-        return new HumanIterator(humans);
+        return humans.iterator();
     }
 }
