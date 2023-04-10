@@ -12,7 +12,12 @@ public class Service {
         tree.addHuman(new Human(++id, name));
     }
 
-    public void sort(){
-        tree.sort();
+    public void sortByName(){
+        tree.sortByName();
     }
+
+    public void sortById(){
+        tree.sortById();
+    }
+
 }

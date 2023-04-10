@@ -84,7 +84,11 @@ public class Tree implements Serializable, Iterable<Human>{
         return humans.iterator();
     }
 
-    public void sort(){
-        Collections.sort(humans);
+    public void sortByName(){
+        humans.sort(new HumanComparatorByName());
+    }
+
+    public void sortById(){
+        humans.sort(new HumanComparatorById());
     }
 }

@@ -48,8 +48,13 @@ public class Main {
             System.out.println(human);
         }
         System.out.println();
-        service.sort();
+        service.sortByName();
 
+        for (Human human: iterablePeople) {
+            System.out.println(human);
+        }
+        System.out.println();
+        service.sortById();
         for (Human human: iterablePeople) {
             System.out.println(human);
         }
