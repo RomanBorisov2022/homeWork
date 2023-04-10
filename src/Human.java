@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Human implements Serializable{
+public class Human implements Serializable, Comparable<Human>{
     private int id;
     private String name;
     private Date birthDay;
@@ -25,6 +25,7 @@ public class Human implements Serializable{
     public Human(int id, String name){
         this.id = id;
         this.name = name;
+        children = new ArrayList<>();
     }
 
     public Human(String name, char gender) {
@@ -78,6 +79,10 @@ public class Human implements Serializable{
 
     public void setFather(Human father) {
         this.father = father;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
@@ -143,5 +148,10 @@ public class Human implements Serializable{
         sb.append(", ");
         sb.append(getChildrenInfo());
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Human o) {
+        return this.name.compareTo(o.name);
     }
 }

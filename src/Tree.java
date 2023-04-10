@@ -1,10 +1,7 @@
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
-public class Tree implements Serializable, Iterable<Human> {
+public class Tree implements Serializable, Iterable<Human>{
     private List<Human> humans;
 
     public Tree(){
@@ -85,5 +82,9 @@ public class Tree implements Serializable, Iterable<Human> {
     @Override
     public Iterator<Human> iterator() {
         return humans.iterator();
+    }
+
+    public void sort(){
+        Collections.sort(humans);
     }
 }

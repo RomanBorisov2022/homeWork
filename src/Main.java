@@ -2,7 +2,7 @@ import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.util.Iterator;
 import java.util.List;
-
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +15,8 @@ public class Main {
         System.out.println(tree.getInfo());
         Human human3 = new Human("Гена", 'm');
         tree.addHuman(human3);
+        Human human4 = new Human("John", 'm');
+        tree.addHuman(human4);
 
         human2.addChild(new Human("Петя", 'm'));
         tree.addHuman(human2);
@@ -34,12 +36,19 @@ public class Main {
         service.addHuman(human1.getName());
         service.addHuman(human2.getName());
         service.addHuman(human3.getName());
+        service.addHuman(human4.getName());
 
 //        Iterator<Human> iterator = tree.iterator();
 //        while (iterator.hasNext()) {
 //            Human human = iterator.next();
 //            System.out.println(human);
 //        }
+
+        for (Human human: iterablePeople) {
+            System.out.println(human);
+        }
+        System.out.println();
+        service.sort();
 
         for (Human human: iterablePeople) {
             System.out.println(human);

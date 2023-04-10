@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class Service {
     private int id;
     private Tree tree;
@@ -8,5 +10,9 @@ public class Service {
 
     public void addHuman(String name) {
         tree.addHuman(new Human(++id, name));
+    }
+
+    public void sort(){
+        tree.sort();
     }
 }
