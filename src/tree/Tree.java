@@ -1,3 +1,9 @@
+package tree;
+
+import human.Human;
+import human.comparator.HumanComparatorById;
+import human.comparator.HumanComparatorByName;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -75,8 +81,8 @@ public class Tree implements Serializable, Iterable<Human>{
     }
 
 //    @Override
-//    public Iterator<Human> iterator() {
-//        return new HumanIterator(humans);
+//    public Iterator<human.Human> iterator() {
+//        return new tree.HumanIterator(humans);
 //    }
 
     @Override

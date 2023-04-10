@@ -1,8 +1,5 @@
-import javax.sound.midi.Soundbank;
-import java.io.*;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Date;
+import human.Human;
+import tree.Tree;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,9 +35,9 @@ public class Main {
         service.addHuman(human3.getName());
         service.addHuman(human4.getName());
 
-//        Iterator<Human> iterator = tree.iterator();
+//        Iterator<human.Human> iterator = tree.iterator();
 //        while (iterator.hasNext()) {
-//            Human human = iterator.next();
+//            human.Human human = iterator.next();
 //            System.out.println(human);
 //        }
 
