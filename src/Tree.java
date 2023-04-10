@@ -1,18 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
-public class Tree implements Serializable{
-    @Override
-    public void save() {
-
-    }
-
-    @Override
-    public void read() {
-
-    }
-
+public class Tree implements Serializable, Iterable<Human> {
     private List<Human> humans;
 
     public Tree(){
@@ -20,6 +12,21 @@ public class Tree implements Serializable{
     }
     private Tree(List<Human> humans){
         this.humans = humans;
+    }
+
+
+    public void saveFile(){
+        SaveReadFile srf = new SaveReadFile();
+        srf.saveFile(this);
+    }
+    public void readFile(){
+        SaveReadFile srf = new SaveReadFile();
+        Object o = srf.readFile();
+        if (o instanceof Tree){
+            Tree tree = new Tree();
+            tree = (Tree) o;
+            this.humans = tree.humans;
+        }
     }
 
     public List<Human> getNameByBirthday(Date birthDay) {
@@ -68,5 +75,10 @@ public class Tree implements Serializable{
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<Human> iterator() {
+        return new HumanIterator(humans);
     }
 }

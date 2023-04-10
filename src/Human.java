@@ -1,28 +1,11 @@
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Human extends People {
-
-    @Override
-    public void save() {
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                new FileOutputStream("save.bin"));
-        objectOutputStream.writeObject();
-        objectOutputStream.close();
-    }
-
-    @Override
-    public void read() {
-        ObjectInputStream objectInputStream = new ObjectInputStream(
-                new FileInputStream("read.bin"));
-        Human human = (Human) objectInputStream.readObject();
-        objectInputStream.close();
-    }
-
+public class Human implements Serializable{
+    private int id;
     private String name;
     private Date birthDay;
     private Date deathDay;
@@ -37,6 +20,11 @@ public class Human extends People {
             return true;
         }
         return false;
+    }
+
+    public Human(int id, String name){
+        this.id = id;
+        this.name = name;
     }
 
     public Human(String name, char gender) {
@@ -94,7 +82,7 @@ public class Human extends People {
 
     @Override
     public String toString() {
-        return "Имя: " + name + " Пол: " + gender + " Дата рождения: " + birthDay + " Отец: " + father +
+        return "id " + id + " Имя: " + name + " Пол: " + gender + " Дата рождения: " + birthDay + " Отец: " + father +
                 " Мать: " + mother;
     }
 

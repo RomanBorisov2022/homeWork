@@ -1,18 +1,48 @@
-import java.util.ArrayList;
+import javax.sound.midi.Soundbank;
+import java.io.*;
+import java.util.Iterator;
 import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
         Tree tree = new Tree();
-        tree.addHuman(new Human("Иван", 'm'));
+
+        Human human1 = new Human("Иван", 'm');
+        tree.addHuman(human1);
         Human human2 = new Human("Вася", 'f');
         human2.getFather();
         System.out.println(tree.getInfo());
+        Human human3 = new Human("Гена", 'm');
+        tree.addHuman(human3);
+
         human2.addChild(new Human("Петя", 'm'));
         tree.addHuman(human2);
         System.out.println(tree.getInfo());
-        tree.getByName("Иван").addChild(new Human("Лиза", 'f'));
+
+        tree.getByName(human1.getName()).addChild(new Human("Лиза", 'f'));
         human2.getInfo();
         System.out.println(tree.getInfo());
+
+        tree.saveFile();
+        Tree newTree = new Tree();
+        newTree.readFile();
+        System.out.println(newTree.getInfo());
+
+        Tree iterablePeople = new Tree();
+        Service service = new Service(iterablePeople);
+        service.addHuman(human1.getName());
+        service.addHuman(human2.getName());
+        service.addHuman(human3.getName());
+
+//        Iterator<Human> iterator = tree.iterator();
+//        while (iterator.hasNext()) {
+//            Human human = iterator.next();
+//            System.out.println(human);
+//        }
+
+        for (Human human: iterablePeople) {
+            System.out.println(human);
+        }
     }
 }
