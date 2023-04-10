@@ -55,6 +55,7 @@ public class Main {
         }
         System.out.println();
         service.sortById();
+
         for (Human human: iterablePeople) {
             System.out.println(human);
         }
